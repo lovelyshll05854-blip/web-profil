@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Profile | Ghasela</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================
+           RESET
+        ================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #eaf7fc;
+            color: #315a70;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================================
+           COLOR PALETTE
+        ==================================
+
+           Baby Blue  : #A7D8F0
+           Soft Blue  : #78BDE0
+           White      : #FFFFFF
+           Light Blue : #EAF7FC
+           Dark Blue  : #315A70
+
+        ================================== */
+
+
+        /* ================================
+           NAVBAR
+        ================================== */
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1050px;
+            padding: 14px 25px;
+
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(167, 216, 240, 0.6);
+            border-radius: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            z-index: 1000;
+
+            box-shadow: 0 8px 30px rgba(49, 90, 112, 0.08);
+        }
+
+        .logo {
+            font-family: "Baloo 2", cursive;
+            font-size: 25px;
+            font-weight: 700;
+            color: #78bde0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #78bde0;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            color: #315a70;
+            cursor: pointer;
+        }
+
+
+        /* ================================
+           GENERAL SECTION
+        ================================== */
+
+        section {
+            min-height: 100vh;
+            padding: 120px 8% 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #78bde0;
+        }
+
+        .section-title h2 {
+            font-family: "Baloo 2", cursive;
+            font-size: 42px;
+            color: #315a70;
+        }
+
+        .section-title p {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #668494;
+        }
+
+
+        /* ================================
+           HERO
+        ================================== */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 20% 20%, #ffffff 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, #d6f0fa 0%, transparent 25%),
+                #eaf7fc;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 8px solid white;
+
+            box-shadow:
+                0 15px 40px rgba(49, 90, 112, 0.15);
+
+            margin-bottom: 25px;
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .hero-content h1 {
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(45px, 7vw, 75px);
+            color: #315a70;
+            line-height: 1;
+        }
+
+        .hero-content h1 span {
+            color: #78bde0;
+        }
+
+        .hero-content h3 {
+            font-weight: 400;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #668494;
+        }
+
+        .hero-content p {
+            margin: 20px auto;
+            max-width: 550px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #668494;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 28px;
+
+            background: #78bde0;
+            color: white;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            box-shadow: 0 8px 20px rgba(120, 189, 224, 0.3);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            background: #5eafd6;
+            box-shadow: 0 12px 25px rgba(120, 189, 224, 0.4);
+        }
+
+
+        /* ================================
+           FLOATING DECORATIONS
+        ================================== */
+
+        .bubble {
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.6);
+
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .bubble.one {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 8%;
+        }
+
+        .bubble.two {
+            width: 45px;
+            height: 45px;
+            top: 30%;
+            right: 12%;
+            animation-delay: 1s;
+        }
+
+        .bubble.three {
+            width: 65px;
+            height: 65px;
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .bubble.four {
+            width: 30px;
+            height: 30px;
+            bottom: 25%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* ================================
+           ABOUT
+        ================================== */
+
+        #about {
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: "Baloo 2", cursive;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 14px;
+            line-height: 1.9;
+            color: #668494;
+        }
+
+        .biodata-card {
+            background: #eaf7fc;
+            padding: 30px;
+
+            border-radius: 25px;
+
+            box-shadow: 0 15px 40px rgba(49, 90, 112, 0.08);
+        }
+
+        .biodata-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding: 14px 0;
+
+            border-bottom: 1px dashed #b8deed;
+
+            font-size: 14px;
+        }
+
+        .biodata-item:last-child {
+            border-bottom: none;
+        }
+
+        .biodata-item strong {
+            color: #315a70;
+        }
+
+        .biodata-item span {
+            text-align: right;
+            color: #668494;
+        }
+
+
+        /* ================================
+           HOBBIES
+        ================================== */
+
+        #hobbies {
+            background: #eaf7fc;
+        }
+
+        .hobby-container {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .hobby-card {
+            background: white;
+
+            padding: 35px 25px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            transition: 0.35s;
+
+            box-shadow: 0 10px 30px rgba(49, 90, 112, 0.07);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(49, 90, 112, 0.12);
+        }
+
+        .hobby-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card h3 {
+            font-family: "Baloo 2", cursive;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .hobby-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #668494;
+        }
+
+
+        /* ================================
+           FUN FACTS
+        ================================== */
+
+        #facts {
+            background: white;
+        }
+
+        .facts-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .fact {
+            padding: 25px;
+
+            background: #eaf7fc;
+
+            border-radius: 20px;
+
+            border-left: 5px solid #78bde0;
+
+            transition: 0.3s;
+        }
+
+        .fact:hover {
+            transform: translateX(5px);
+        }
+
+        .fact h3 {
+            font-family: "Baloo 2", cursive;
+            font-size: 22px;
+        }
+
+        .fact p {
+            margin-top: 5px;
+            font-size: 13px;
+            color: #668494;
+        }
+
+
+        /* ================================
+           DREAM
+        ================================== */
+
+        #dream {
+            background: #eaf7fc;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dream-card {
+            max-width: 850px;
+            text-align: center;
+
+            background: white;
+
+            padding: 60px 40px;
+
+            border-radius: 35px;
+
+            box-shadow: 0 20px 50px rgba(49, 90, 112, 0.08);
+        }
+
+        .dream-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .dream-card h2 {
+            font-family: "Baloo 2", cursive;
+            font-size: 45px;
+            color: #315a70;
+        }
+
+        .dream-card h2 span {
+            color: #78bde0;
+        }
+
+        .dream-card p {
+            max-width: 600px;
+            margin: 15px auto 0;
+
+            line-height: 1.8;
+            font-size: 14px;
+            color: #668494;
+        }
+
+
+        /* ================================
+           GALLERY
+        ================================== */
+
+        #gallery {
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 230px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background: #eaf7fc;
+
+            cursor: pointer;
+
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+
+        /* ================================
+           CONTACT
+        ================================== */
+
+        #contact {
+            min-height: auto;
+
+            background: #a7d8f0;
+
+            text-align: center;
+
+            padding-bottom: 40px;
+        }
+
+        #contact .section-title h2 {
+            color: #315a70;
+        }
+
+        .contact-text {
+            max-width: 550px;
+            margin: auto;
+
+            font-size: 14px;
+            line-height: 1.8;
+            color: #315a70;
+        }
+
+        .social-links {
+            margin-top: 25px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            background: white;
+
+            padding: 10px 20px;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-4px);
+            background: #315a70;
+            color: white;
+        }
+
+        footer {
+            margin-top: 50px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(49, 90, 112, 0.2);
+
+            font-size: 12px;
+            color: #315a70;
+        }
+
+
+        /* ================================
+           SCROLL REVEAL
+        ================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================== */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                width: 92%;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 65px;
+                right: 0;
+
+                width: 200px;
+
+                padding: 20px;
+
+                background: white;
+
+                border-radius: 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                box-shadow: 0 10px 30px rgba(49, 90, 112, 0.1);
+
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hobby-container {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .profile-photo {
+                width: 145px;
+                height: 145px;
+            }
+
+            .biodata-item {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .biodata-item span {
+                text-align: left;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dream-card {
+                padding: 45px 25px;
+            }
+
+            .dream-card h2 {
+                font-size: 36px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================================
+         NAVBAR
+    ================================== -->
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            G.
+        </a>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#facts">Facts</a></li>
+            <li><a href="#dream">Dream</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================================
+         HOME
+    ================================== -->
+
+    <section id="home">
+
+        <!-- Floating bubbles -->
+        <div class="bubble one"></div>
+        <div class="bubble two"></div>
+        <div class="bubble three"></div>
+        <div class="bubble four"></div>
+
+        <div class="hero-content">
+
+            <!--
+                GANTI FOTO DI SINI
+
+                Contoh:
+                src="foto-saya.jpg"
+
+                Pastikan foto berada di folder yang sama
+                dengan file index.html.
+            -->
+
+            <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+                alt="Profile Photo"
+                class="profile-photo"
+            >
+
+            <h1>
+                Hi, I'm <span>Ghasela!</span>
+            </h1>
+
+            <h3>
+                Welcome to my little corner ♡
+            </h3>
+
+            <p>
+                Hello! I'm Ghasela. This is my personal website
+                where you can get to know me, my hobbies, my dreams,
+                and a few fun facts about me.
+            </p>
+
+            <a href="#about" class="btn">
+                Get to know me ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         ABOUT ME
+    ================================== -->
+
+    <section id="about">
+
+        <div class="section-title reveal">
+            <h2>About <span>Me</span> ♡</h2>
+            <p>A little introduction about myself.</p>
+        </div>
+
+
+        <div class="about-container">
+
+            <div class="about-text reveal">
+
+                <h3>Hello there! 👋🏻</h3>
+
+                <p>
+                    My name is Ghasella Shezylya Indy.
+                    You can call me Ghasela or Zya.
+                    I am a student who loves exploring new things
+                    and spending my time doing things that I enjoy.
+                </p>
+
+                <br>
+
+                <p>
+                    One of the things I enjoy the most is dancing.
+                    I also have a dream that I hope I can achieve
+                    someday.
+                </p>
+
+            </div>
+
+
+            <div class="biodata-card reveal">
+
+                <div class="biodata-item">
+                    <strong>Full Name</strong>
+                    <span>Ghasella Shezylya Indy</span>
+                </div>
+
+                <div class="biodata-item">
+                    <strong>Nickname</strong>
+                    <span>Ghasela / Zya</span>
+                </div>
+
+                <div class="biodata-item">
+                    <strong>Age</strong>
+                    <span>15 years old</span>
+                </div>
+
+                <div class="biodata-item">
+                    <strong>City</strong>
+                    <span>Bandung</span>
+                </div>
+
+                <div class="biodata-item">
+                    <strong>Status</strong>
+                    <span>Student</span>
+                </div>
+
+                <div class="biodata-item">
+                    <strong>Class</strong>
+                    <span>X</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         HOBBIES
+    ================================== -->
+
+    <section id="hobbies">
+
+        <div class="section-title reveal">
+
+            <h2>My <span>Hobbies</span> 💃</h2>
+
+            <p>
+                Things I love doing in my free time.
+            </p>
+
+        </div>
+
+
+        <div class="hobby-container">
+
+            <div class="hobby-card reveal">
+
+                <div class="hobby-icon">
+                    💃🏻
+                </div>
+
+                <h3>Traditional Dance</h3>
+
+                <p>
+                    I enjoy learning and performing
+                    traditional Indonesian dances.
+                </p>
+
+            </div>
+
+
+            <div class="hobby-card reveal">
+
+                <div class="hobby-icon">
+                    🪩
+                </div>
+
+                <h3>Modern Dance</h3>
+
+                <p>
+                    Dancing is one of my favorite ways
+                    to express myself and have fun.
+                </p>
+
+            </div>
+
+
+            <div class="hobby-card reveal">
+
+                <div class="hobby-icon">
+                    🎧
+                </div>
+
+                <h3>Listening to Music</h3>
+
+                <p>
+                    Music is something I enjoy while
+                    relaxing or doing my daily activities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         FUN FACTS
+    ================================== -->
+
+    <section id="facts">
+
+        <div class="section-title reveal">
+
+            <h2>Fun <span>Facts</span> ✨</h2>
+
+            <p>
+                A few little things about me.
+            </p>
+
+        </div>
+
+
+        <div class="facts-container">
+
+            <div class="fact reveal">
+
+                <h3>💃 Dance Lover</h3>
+
+                <p>
+                    Dancing is one of my favorite activities.
+                </p>
+
+            </div>
+
+
+            <div class="fact reveal">
+
+                <h3>🩵 Baby Blue</h3>
+
+                <p>
+                    I love soft and calming colors,
+                    especially baby blue.
+                </p>
+
+            </div>
+
+
+            <div class="fact reveal">
+
+                <h3>🌱 New Experiences</h3>
+
+                <p>
+                    I like trying new things and learning
+                    from new experiences.
+                </p>
+
+            </div>
+
+
+            <div class="fact reveal">
+
+                <h3>✨ Big Dream</h3>
+
+                <p>
+                    I have a dream that I hope to achieve
+                    in the future.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         MY DREAM
+    ================================== -->
+
+    <section id="dream">
+
+        <div class="dream-card reveal">
+
+            <div class="dream-icon">
+                🩺
+            </div>
+
+            <h2>
+                My <span>Dream</span>
+            </h2>
+
+            <p>
+                One of my biggest dreams is to become a doctor.
+                I want to continue learning, growing, and doing
+                my best so I can achieve that dream someday.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         GALLERY
+    ================================== -->
+
+    <section id="gallery">
+
+        <div class="section-title reveal">
+
+            <h2>My <span>Gallery</span> 📸</h2>
+
+            <p>
+                Some moments that I want to remember.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-container">
+
+            <!-- GANTI GAMBAR DI BAGIAN src -->
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 1"
+                >
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 2"
+                >
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 3"
+                >
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 4"
+                >
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 5"
+                >
+
+            </div>
+
+
+            <div class="gallery-item reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 6"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         CONTACT
+    ================================== -->
+
+    <section id="contact">
+
+        <div class="section-title reveal">
+
+            <h2>Let's <span>Connect</span> 💌</h2>
+
+            <p>
+                Find me on social media.
+            </p>
+
+        </div>
+
+
+        <p class="contact-text reveal">
+
+            Thank you for visiting my personal website!
+            I hope you enjoyed getting to know a little bit
+            about me. See you again! 🩵
+
+        </p>
+
+
+        <div class="social-links reveal">
+
+            <a href="#" onclick="showMessage('Instagram')">
+                📷 Instagram
+            </a>
+
+            <a href="#" onclick="showMessage('TikTok')">
+                🎵 TikTok
+            </a>
+
+            <a href="#" onclick="showMessage('Email')">
+                ✉️ Email
+            </a>
+
+        </div>
+
+
+        <footer>
+
+            © 2026 Ghasela — My Personal Profile 🩵
+
+        </footer>
+
+    </section>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        /* =================================
+           MOBILE MENU
+        ================================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* =================================
+           CLOSE MOBILE MENU
+        ================================= */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =================================
+           SCROLL REVEAL ANIMATION
+        ================================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        function revealOnScroll() {
+
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(function(element) {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        window.addEventListener("load", revealOnScroll);
+
+
+        /* =================================
+           SOCIAL MEDIA MESSAGE
+        ================================= */
+
+        function showMessage(platform) {
+
+            alert(
+                "Link " + platform +
+                " belum ditambahkan. Kamu bisa menggantinya dengan link akunmu sendiri! 🩵"
+            );
+
+        }
+
+
+        /* =================================
+           GALLERY CLICK EFFECT
+        ================================= */
+
+        const galleryItems =
+            document.querySelectorAll(".gallery-item");
+
+
+        galleryItems.forEach(function(item) {
+
+            item.addEventListener("click", function() {
+
+                const image = item.querySelector("img");
+
+                if (image) {
+
+                    window.open(image.src, "_blank");
+
+                }
+
+            });
+
+        });
+
+
+        /* =================================
+           ACTIVE NAVBAR
+        ================================= */
+
+        const sections =
+            document.querySelectorAll("section");
+
+        const navItems =
+            document.querySelectorAll(".nav-links a");
+
+
+        window.addEventListener("scroll", function() {
+
+            let current = "";
+
+            sections.forEach(function(section) {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+
+                    current = section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navItems.forEach(function(link) {
+
+                link.style.color = "";
+
+                if (link.getAttribute("href") === "#" + current) {
+
+                    link.style.color = "#78bde0";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+
